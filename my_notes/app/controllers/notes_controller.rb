@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
 	def index
-		@message = "Guillaume"
+		@messages = params[:messages].present? ? params[:messages] : ["World"]
+		ap params
 	end
 end
