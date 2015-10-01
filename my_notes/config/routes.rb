@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  resources :notes do
+    get "search", :on => :collection
+  end
+  resources :notes
+
   root "notes#index"
-  get "/notes/:id/preview" => "notes#preview", :as => "preview_note"
+  #get "/notes/:id/preview" => "notes#preview", :as => "preview_note"
   #get "/notes" => "notes#index"
   #get "/notes/:id" => "notes#show"
   #delete "/notes/:id" => "notes#destroy"
 
-  resources :notes, :only => [:index,:show,:destroy]
+  #resources :notes, :only => [:index,:show,:destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

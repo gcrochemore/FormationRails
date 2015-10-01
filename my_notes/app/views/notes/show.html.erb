@@ -1,15 +1,14 @@
-Ceci est une note
-<table>
-<tr>
-	<th>ID</th><td><%= @note.id %></td>
-</tr>
-<tr>
-	<th>USER</th><td><%= @note.user %></td>
-</tr>
-<tr>
-	<th>CONTENT</th><td><%= @note.content %></td>
-</tr>
-<tfoot>
-	<%= link_to "< Back","/" %>
-</tfoot>
-</table>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @note.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @note.content %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>
