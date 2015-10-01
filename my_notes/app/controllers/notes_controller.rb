@@ -6,4 +6,14 @@ class NotesController < ApplicationController
 		end
 		@notes = Note.all
 	end
+	def show
+		@note = Note.find(params[:id])
+	end
+	def preview
+		@note = Note.find(params[:id])
+	end
+	def destroy
+		@note = Note.find(params[:id]).destroy
+		redirect_to "/"
+	end
 end

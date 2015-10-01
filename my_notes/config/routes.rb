@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root "notes#index"
+  get "/notes/:id" => "notes#show"
+  get "/notes/:id/preview" => "notes#preview", :as => "preview_note"
+  delete "/notes/:id" => "notes#destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

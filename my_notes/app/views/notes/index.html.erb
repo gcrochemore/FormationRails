@@ -4,7 +4,16 @@ Vous avez saisi les notes suivantes :
 <table>
 	<tr><th>id</th><th>user</th><th>Message</th></tr>
 	<% @notes.each do |note| %>
-		<tr><td><%= note.id %></td><td><%= note.user %></td><td><%= note.content %></td></tr>
+		<tr>
+			<td><%= note.id %></td>
+			<td><%= note.user %></td>
+			<td><%= note.content %></td>
+			<td>
+				<%= link_to "Show","/notes/#{note.id}" %>
+				<%= link_to "Delete","/notes/#{note.id}", :method=> :delete %>
+				<%= link_to "Preview ",preview_note_path(note.id) %>
+			</td>
+		</tr>
 	<% end %>
 </table>
 <br>
