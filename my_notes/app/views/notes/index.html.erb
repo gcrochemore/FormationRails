@@ -1,24 +1,19 @@
 <h1>Hello !</h1>
-Vous avez saisi les messages suivants :
-<ul>
-	<% @messages.each do |message| %>
-		<% if !message.empty? %>
-			<li><%= message %></li>
-		<% end %>
+Vous avez saisi les notes suivantes :
+
+<table>
+	<tr><th>id</th><th>user</th><th>Message</th></tr>
+	<% @notes.each do |note| %>
+		<tr><td><%= note.id %></td><td><%= note.user %></td><td><%= note.content %></td></tr>
 	<% end %>
-</ul>
+</table>
+<br>
+Ajouter une note :
 
 <%= form_tag("/", :method => :get) do %><br>
-	<%= hidden_field_tag 'nb_zones', @nb_zones %>
-	<%= label_tag(:messages, "Messages :") %><br>
-	<% (1..@nb_zones.to_i).each do %>
-		<%= text_field_tag("messages[]") %><br>
-	<% end %>
-	<%= submit_tag("Show") %>
+	<%= label_tag(:user, "User :") %><br>
+	<%= text_field_tag("user") %><br>
+	<%= label_tag(:message, "Content :") %><br>
+	<%= text_field_tag("content") %><br>
+	<%= submit_tag("Ajouter") %>
 <% end %>
-
-<%= link_to 'Ajouter une zone', "?nb_zones=#{@nb_zones}&&ajouter=true", class:"btn", id:"google" %>
-
-<%= link_to 'Supprimer une zone', "?nb_zones=#{@nb_zones}&&supprimer=true", class:"btn", id:"google" %>
-
-
