@@ -1,12 +1,15 @@
 <h1>Listing notes</h1>
 
-<%= form_tag(search_notes_path(), :method => :get) do %><br>
-<%= label_tag(:keyword, "Mot clé :") %>
-<%= text_field_tag("keyword", @keyword) %>
-<%= submit_tag("Search") %>
-<% end %>
+<div id="search">
+  <%= form_tag search_notes_path, :method => "get", :class => "form-inline", :role => "search" do %>
+    <div class="form-group">
+      <%= text_field_tag :keyword, @keyword, :class => "form-control" %>
+    </div>
+    <%= submit_tag "Search", :class => "btn btn-default" %>
+  <% end %> 
+ </div> 
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -36,7 +39,7 @@
 <%= paginate @notes %>
 <br>
 
-<%= link_to 'New Note', new_note_path %>
+<%= link_to 'New Note', new_note_path, :class => "btn btn-default btn-lg" %>
 
 
 

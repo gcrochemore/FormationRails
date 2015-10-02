@@ -8,7 +8,21 @@
 </head>
 <body>
 
-<%= yield %>
 
+<div id="wrap">
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<%= link_to 'MyNotes', root_path, :class => "navbar-brand" %>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<%= yield %>
+	</div>
+</div>
+
+
+Le pied de page
 </body>
 </html>

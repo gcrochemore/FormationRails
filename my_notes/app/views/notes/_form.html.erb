@@ -27,5 +27,7 @@
 <%= simple_form_for @note do |f| %>
 <%= f.input :title %>
 <%= f.input :content, :hint => "No special characters" %>
-<%= f.button :submit %>
+<div class ="form-group">
+  <%= f.button :submit %>
+</div>
 <% end %>

@@ -64,6 +64,7 @@ class NotesController < ApplicationController
   def search   
   	@keyword = params[:keyword]
   	@notes = @keyword.present? ? Note.search(@keyword): Note.all
+  	@notes = @notes.page params[:page]
   	render :index
   end
 
